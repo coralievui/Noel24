@@ -22,7 +22,7 @@
   });
   
   document.getElementById('generate').addEventListener('click', () => {
-    if (participants.length < 2) {
+    if (participants.length < 7) {
       alert('Ajoutez au moins deux participants.');
       return;
     }
