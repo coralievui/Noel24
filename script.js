@@ -1,6 +1,6 @@
 // EmailJS initialization
 (function () {
-    emailjs.init('gc_x1ML7SQHlDcNnk'); // Remplacez par votre Public Key
+    emailjs.init('wR783e1n7aRveMTsi'); // Remplacez par votre Public Key
   })();
   
   const participants = [];
