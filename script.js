@@ -1,8 +1,6 @@
 // EmailJS initialization
 (function () {
-    emailjs.init({
-        publicKey: "gc_x1ML7SQHlDcNnk",
-      }); // Remplacez par votre User ID EmailJS
+    emailjs.init('gc_x1ML7SQHlDcNnk'); // Remplacez par votre Public Key
   })();
   
   const participants = [];
@@ -22,7 +20,7 @@
   });
   
   document.getElementById('generate').addEventListener('click', () => {
-    if (participants.length < 7) {
+    if (participants.length < 2) {
       alert('Ajoutez au moins deux participants.');
       return;
     }
@@ -57,6 +55,7 @@
     emailStatus.textContent = 'Envoi des e-mails en cours...';
   
     let emailsSent = 0;
+    let emailsFailed = 0;
   
     pairs.forEach(pair => {
       const { giver, receiver } = pair;
@@ -71,16 +70,33 @@
         .send('service_twx9mic', 'template_mwyqaua', templateParams)
         .then(
           response => {
+            console.log(`E-mail envoyé avec succès à : ${giver.email}`);
             emailsSent++;
-            if (emailsSent === pairs.length) {
-              emailStatus.textContent = 'Tous les e-mails ont été envoyés avec succès ! 🎉';
-            }
+            updateEmailStatus(emailsSent, emailsFailed, pairs.length);
           },
           error => {
-            emailStatus.textContent = 'Une erreur est survenue lors de l’envoi des e-mails. Veuillez réessayer.';
-            console.error('Échec de l’envoi de l’e-mail :', error);
+            console.error(`Erreur lors de l'envoi à : ${giver.email}`, error);
+            emailsFailed++;
+            updateEmailStatus(emailsSent, emailsFailed, pairs.length);
           }
         );
     });
+  }
+  
+  function updateEmailStatus(sent, failed, total) {
+    const emailStatus = document.getElementById('email-status');
+  
+    if (sent + failed === total) {
+      if (failed === 0) {
+        emailStatus.textContent = 'Tous les e-mails ont été envoyés avec succès ! 🎉';
+        emailStatus.style.color = 'green';
+      } else {
+        emailStatus.textContent = `${sent} e-mails envoyés avec succès, ${failed} échec(s).`;
+        emailStatus.style.color = 'orange';
+      }
+    } else {
+      emailStatus.textContent = `Envoi en cours... ${sent} sur ${total} e-mails envoyés.`;
+      emailStatus.style.color = 'blue';
+    }
   }
   
