@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Père Noël Secret</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Père Noël Secret 🎅</h1>
+    <form id="secret-santa-form">
+      <div class="form-group">
+        <input type="text" id="name" placeholder="Nom" required>
+        <input type="email" id="email" placeholder="E-mail" required>
+        <button type="button" id="add-participant">Ajouter</button>
+      </div>
+      <div id="participants-list">
+        <h3>Participants :</h3>
+        <ul id="participants"></ul>
+      </div>
+      <button type="button" id="generate">Générer les paires 🎁</button>
+    </form>
+    <div id="result"></div>
+    <div id="email-status"></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
