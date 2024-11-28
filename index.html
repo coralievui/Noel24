@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secret Santa - Add Participants</title>
+    <title>Père Noël Secret - Ajouter des Participants</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -51,16 +51,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>Secret Santa</h1>
+        <h1>Père Noël Secret</h1>
         <form action="save_emails.php" method="POST">
-            <label for="email">Enter Participant Email:</label>
-            <input type="email" name="email" id="email" placeholder="Enter email" required>
-            <button type="submit">Add Email</button>
+            <label for="email">Entre ton mail ici :</label>
+            <input type="email" name="email" id="email" placeholder="Mon adresse mail" required>
+            <button type="submit">A moi les cadox !</button>
         </form>
         <div class="link">
-            <a href="view_result.html">View My Secret Santa Pair</a><br>
-            <a href="generate_pairs.php">Generate Pairs (Admin)</a>
+            <a href="view_result.html">A qui j'offre un cadeau cette année ?</a><br>
+            <a href="generate_pairs.php">Générer les paires (Admin)</a>
+            <a href="reset.php" style="color: red; font-weight: bold;">Réinitialiser tout</a>
         </div>
+        
     </div>
+    
 </body>
 </html>

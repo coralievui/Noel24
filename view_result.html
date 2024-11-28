@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Père Noël Secret - Voir Votre Destinataire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #d91e18;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="email"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #d91e18;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer.
+        }
+        button:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Trouvez Votre Destinataire</h1>
+        <form action="get_pair.php" method="POST">
+            <label for="email">Entre ton mail ici :</label>
+            <input type="email" name="email" id="email" placeholder="Saisissez votre email" required>
+            <button type="submit">J'offre un cadeau à</button>
+        </form>
+    </div>
+</body>
+</html>
