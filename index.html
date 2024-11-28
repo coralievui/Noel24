@@ -1,30 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Père Noël Secret</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Santa - Add Participants</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #d91e18;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="email"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #d91e18;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #b71c1c;
+        }
+        .link {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Père Noël Secret 🎅</h1>
-    <form id="secret-santa-form">
-      <div class="form-group">
-        <input type="text" id="name" placeholder="Nom" required>
-        <input type="email" id="email" placeholder="E-mail" required>
-        <button type="button" id="add-participant">Ajouter</button>
-      </div>
-      <div id="participants-list">
-        <h3>Participants :</h3>
-        <ul id="participants"></ul>
-      </div>
-      <button type="button" id="generate">Générer les paires 🎁</button>
-    </form>
-    <div id="result"></div>
-    <div id="email-status"></div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
-  <script src="script.js"></script>
+    <div class="container">
+        <h1>Secret Santa</h1>
+        <form action="save_emails.php" method="POST">
+            <label for="email">Enter Participant Email:</label>
+            <input type="email" name="email" id="email" placeholder="Enter email" required>
+            <button type="submit">Add Email</button>
+        </form>
+        <div class="link">
+            <a href="view_result.html">View My Secret Santa Pair</a><br>
+            <a href="generate_pairs.php">Generate Pairs (Admin)</a>
+        </div>
+    </div>
 </body>
 </html>
